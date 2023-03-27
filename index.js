@@ -13,8 +13,6 @@ function checkSpam() {
 	return checkedComment;
 }
 
-
-
 function createPost() {
 	let post = document.createElement('div');
 	chatTitle.append(post);
