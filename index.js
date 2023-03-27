@@ -6,6 +6,7 @@ const chatarea = document.querySelector('.chatarea');
 const chatTitle = document.querySelector('.chattitle');
 const inpyes = document.getElementById('inpyes');
 const inpno = document.getElementById('inpno');
+let icons = ['./assets/icons/astronaut.png', './assets/icons/bear.png', './assets/icons/cat.png', './assets/icons/dog.png', './assets/icons/panda.png', './assets/icons/rabbit.png'];
 
 function checkSpam() {
 	let comment = inpcomment.value;
@@ -20,7 +21,13 @@ function createPost() {
 
 	const messageAvatar = document.createElement('img');
 	messageAvatar.classList.add('avatarimg');
-	messageAvatar.src = inpimg.value;
+	if (inpimg.value === "") {
+		let randomAvatar = Math.floor(Math.random() * icons.length);
+		messageAvatar.src = icons[randomAvatar];		
+	} else {
+		messageAvatar.src = inpimg.value;
+	}
+	
 	post.append(messageAvatar);
 
 	const messageUserName = document.createElement('p');
