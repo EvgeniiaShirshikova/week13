@@ -4,12 +4,16 @@ const inpcomment = document.getElementById('inpcomment');
 const form = document.querySelector('form');
 const chatarea = document.querySelector('.chatarea');
 const chatTitle = document.querySelector('.chattitle');
+const inpyes = document.getElementById('inpyes');
+const inpno = document.getElementById('inpno');
 
 function checkSpam() {
 	let comment = inpcomment.value;
 	let checkedComment = comment.replace(/viagra|xxx/gi, '***');
 	return checkedComment;
 }
+
+
 
 function createPost() {
 	let post = document.createElement('div');
@@ -23,7 +27,11 @@ function createPost() {
 
 	const messageUserName = document.createElement('p');
 	messageUserName.classList.add('username');
-	messageUserName.textContent = inpname.value;
+	if (inpyes.checked) {
+		messageUserName.textContent = inpname.value;
+	} else {
+		messageUserName.textContent = "Username";
+	};	
 	post.append(messageUserName);
 
 	const messageText = document.createElement('p');
@@ -45,5 +53,9 @@ inpname.addEventListener('input', () => {
 
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
-	createPost();
+	if ((inpyes.checked && !(inpno.checked)) || (!(inpyes.checked) && inpno.checked)) {
+		createPost()
+	} else {
+		alert("Укажите показывать ли ваше имя!");
+	}
 });
