@@ -30,6 +30,11 @@ function createPost() {
 	messageText.classList.add('comment');
 	messageText.textContent = checkSpam();
 	post.append(messageText);
+
+	const messageDate = document.createElement('p');
+	messageDate.classList.add('date');
+	messageDate.textContent = new Date();
+	post.append(messageDate);
 }
 
 inpname.addEventListener('input', () => {
