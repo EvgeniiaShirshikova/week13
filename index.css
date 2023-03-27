@@ -26,6 +26,26 @@ label {
     color: white;
 }
 
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: dashed rgb(64, 64, 153);
+    border-radius: 0;
+    margin-right: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-color: rgb(64, 64, 153);
+}
+
 .inputtxt {
     margin-bottom: 5%;
     padding: 10px;
