@@ -42,7 +42,23 @@ input[type="checkbox"] + label::before {
     cursor: pointer;
 }
 
+input[type="checkbox"] + label::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: dashed rgb(64, 64, 153);
+    border-radius: 0;
+    margin-right: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
 input[type="checkbox"]:checked + label::before {
+    background-color: rgb(64, 64, 153);
+}
+
+input[type="checkbox"]:checked + label::after {
     background-color: rgb(64, 64, 153);
 }
 
